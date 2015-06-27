@@ -3,37 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<title>Big Bowl Thai Cuisine</title>
-
-	<!-- <link rel="stylesheet" href="reset.css"> -->
-
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
-	<!-- <link rel="stylesheet" media="screen" href="bbt.css"> -->
 	<link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="bootstrap/fonts/glyphicons-halflings-regular.ttf">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Matthew Morrone">
 	<meta name="description" content="Thai Restaurant Cuisine Huntsville Alabama.">
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Huntsville,Alabama,Thai,Cuisine,Food,Restaurant,Fine,Dining,Takeout,Take-out" />
 	<!-- http://www.thesitewizard.com/archive/metatags.shtml -->
-
-
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
 	<!--[if lt IE 9]>
 	<script src="script/html5shiv.js"></script>
 	<![endif]-->
 	<script type='text/javascript' src='http://code.jquery.com/jquery-2.1.4.js'></script>
 	<script type='text/javascript' src='jquery.helpers.js'></script>
+	<script type='text/javascript' src='disable-scroll.js'></script>
 	<script type='text/javascript' src='http://www.matthewmorrone.com/starch/sugar.js'></script>
 	<script type='text/javascript' src='http://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
 	<script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
-
 	<style>
 
 	/* fonts */
@@ -228,13 +216,19 @@
 		position: relative;
 		z-index: 3;
 	}
+	.glyphicon {
+		margin-right: 3px;
+	}
+	.popover-content {
+		color: black;
+	}
 	</style>
 	<script type='text/javascript'>
+
 	var delay = 400,
 		$this,
 		urls = {
-			// map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3278.473522630782!2d-86.67830426929487!3d34.74366278118364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x886269469dd0996d%3A0xe171e94a3512c3e1!2s6125+University+Dr%2C+Huntsville%2C+AL+35806!3m2!1d34.743662799999996!2d-86.6761585!5e0!3m2!1sen!2sus!4v1433977585506",
-			map: "https://www.google.com/maps/embed/v1/place?q=6125%20University%20Drive%20%20Huntsville%2C%20AL%2035806&key=AIzaSyAbeGAESvhWNvIEOUUwp1wGc-7omOA5XVA",
+			map: "https://www.google.com/maps/embed/v1/place?q=6125+University+Drive+NW,+Suite+D13+Huntsville,+AL+35806&key=AIzaSyAbeGAESvhWNvIEOUUwp1wGc-7omOA5XVA",
 			menu: "menu.pdf",
 			gallery: "gallery.php"
 		}
@@ -250,13 +244,11 @@
 	$(document).on("click", "a", function(e) {
 		if ($(this).href() === "#") {
 			e.preventDefault()
+			disableScroll()
 			$("iframe").src(urls[$(this).attr("data-tab")])
 			$("iframe").center()
-				// .width($(this).attr("data-width"))
-				// .height($(this).attr("data-height"))
 			$(".overlay").fadeIn(delay).show()
 		}
-
 	})
 	$(document).on("click", ".overlay", function(e) {
 		e.preventDefault()
@@ -273,28 +265,25 @@
 		$("container").width("100%").margin(0).padding(0)
 		$("header, footer").css("line-height", 50).height(50)
 		$("html, body, container").css("background-color", "#663a2a")
-
 		$(".row").eq(0).prev("a").before($(".row").eq(0))
-
-
-
 		$("footer").children().wrap("<div class='col-md-3'></div>")
 		$("footer").children().wrapAll("<div class='row'></div>")
-
 		$("#main").append($("footer").find(".row"))
-
-		// $("#main h2").before("<br /> <br /> <br /> <br /> <br />")
-		// $("#main h2").after("<br /> <br /> <br /> <br /> <br />")
-		// $("#main .row").before("<br /> <br /> <br /> <br /> <br />")
-		// $("#main .row").after("<br /> <br /> <br /> <br /> <br />")
-
 		$("footer").remove()
-
 	}
 	$(function() {
 		$("iframe").center()
 		$("iframe").resizable()
-
+		$('[data-toggle="popover"]').popover().mouseleave(function() {
+			$(this).popover("hide")
+			$(this).click()
+		})
+		// $('[data-tab="hours"]').click(function() {
+		// 	$('[data-toggle="popover"]').popover('show')
+		// })
+		// 	$(document).on("mousemove", function() {
+		// 		$('[data-toggle="popover"]').popover('hide')
+		// 	})
 		if ($(window).width() <= 600) {
 			mobilize()
 		}
@@ -311,7 +300,7 @@
 	<body>
 		<container>
 			<header>
-				<h1>Big Bowl Thai Cuisine — Huntsville, Al.</h1>
+				<h1>Big Bowl Thai Cuisine</h1>
 			</header>
 			<nav>
 			</nav>
@@ -341,20 +330,29 @@
 			<footer>
 				<!-- <a href="tel:2564697664">(256) 469-7664</a> -->
 				<!-- <a href="tel:2564696045">(256) 469-6045</a> -->
-				<span class="glyphicon glyphicon-phone"></span>
-				<a href="tel:2569704122">(256) 970-4122</a>
+
+				<a href="tel:2569704122"><span class="glyphicon glyphicon-phone"></span>(256) 970-4122</a>
 				&nbsp;
 				&nbsp;
-				<span class="glyphicon glyphicon-road"></span>
-				<a href="#" data-tab="map">directions</a>
+				<a
+				data-tab="hours"
+				data-placement="top"
+				data-toggle="popover"
+				data-content="Monday thru Friday, 11 AM to 9 PM
+				Sunday, 11 AM to 8 PM">
+				<span class="glyphicon glyphicon-time"></span>hours</a>
 				&nbsp;
 				&nbsp;
-				<span class="glyphicon glyphicon-list-alt"></span>
-				<a href="#" data-tab="menu" data-width="700" data-height='700'>menu</a>
+				<a href="#" data-tab="map"><span class="glyphicon glyphicon-road"></span>directions</a>
+				&nbsp;
+				&nbsp;
+				<a href="#" data-tab="menu" data-width="700" data-height='700'><span class="glyphicon glyphicon-list-alt"></span>menu</a>
+<!--
 				&nbsp;
 				&nbsp;
 				<span class="glyphicon glyphicon-picture"></span>
 				<a href="#" data-tab="gallery" data-width="700" data-height='700'>gallery</a>
+-->
 			</footer>
 			<div class="overlay">
 				<iframe frameborder="0" style="border:0;"></iframe>

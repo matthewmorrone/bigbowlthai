@@ -382,6 +382,16 @@
   },
   "css": [
     "glyphicons.less",
+    "jumbotron.less",
+    "alerts.less",
+    "list-group.less",
+    "panels.less",
+    "responsive-embed.less",
+    "close.less",
+    "component-animations.less",
+    "tooltip.less",
+    "popovers.less",
+    "modals.less",
     "carousel.less"
   ],
   "js": [
@@ -398,5 +408,5 @@
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=28ccdfd7dee4ba3f7929"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=b11cf3585fcab0c0d8b2"
 }
