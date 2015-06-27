@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Big Bowl Thai Cuisine Huntsville, Alabama</title>
+
+	<!-- <link rel="stylesheet" media="screen" href="bbt.css"> -->
+	<style>
+/* Big Bowl Thai */
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #d17415;
+	/*background: #d17415 url(img/bigbowl.gif) 748px 0 repeat-y;*/
+	font: normal 12px/140% "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+
+	#wrap {
+		position: absolute;
+	}
+	#map {
+		/*display: none;*/
+		width: 60%;
+		height: 60%;
+		margin: auto;
+		padding: 0;
+		position: relative;
+		z-index: 3;
+	}
+	iframe {
+		position: absolute;
+	}
+	.layover {
+		display: none;
+		position: absolute;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		/*margin: 0;*/
+		/*padding: 0;*/
+		top: 0px;
+		left: 0px;
+		background-color: rgba(0, 0, 0, 0.75);
+
+		/*
+		background: #000;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		text-align: center;
+		*/
+	}
+p {
+	margin: 0;
+	padding: 0;
+}
+h3 {
+	margin: 0;
+	padding: 0;
+	color: #900;
+	font-size: 12px;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+abbr {
+	font-weight: bold;
+	font-style: normal;
+	border-width: 0;
+}
+.sidebar abbr {
+	font-weight: normal;
+}
+.page-wrapper {
+	width: 60%;
+	margin: auto;
+	background-color: #ffeed6;
+}
+.extra2 {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 100px;
+	height: 323px;
+	background: url(img/collar.gif)  no-repeat;
+}
+.intro {
+	width: 600px;
+}
+header {
+	width: 167.5%;
+	height: 100px;
+	background: #807944;
+	text-align: center;
+}
+header h1 {
+	margin: 0 0 0 100px;
+	padding: 0 0 0 30px;
+	height: 100px;
+	line-height: 100px;
+	background: #982417 url(img/header.gif) top right no-repeat;
+}
+header h1, header h2 {
+	overflow: hidden;
+}
+.summary {
+	margin-left: 100px;
+	background: url(img/summarybg.jpg) 5px 5px no-repeat;
+}
+.summary p:first-child {
+	height: 41px;
+	line-height: 41px;
+	background: url(img/summarytxt_1.gif) 232px 7px no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.extra1 {
+	position: absolute;
+	top: 107px;
+	left: 332px;
+	width: 257px;
+	height: 41px;
+	background: url(img/summarytxt_2.gif) no-repeat;
+}
+.summary p:last-child {
+	position: absolute;
+	top: 423px;
+	left: 0;
+	width: 100px;
+	height: 83px;
+	color: #ffeed6;
+	background: url(img/sample.gif) no-repeat;
+	text-indent: -5000px;
+}
+.supporting {
+	margin: 0 147px 0 100px;
+	background: #982417 url(img/red.gif) bottom no-repeat;
+		text-align: center;
+}
+.supporting a {
+	color: #f93;
+	font-weight: bold;
+}
+.supporting a:visited {
+	color: #f93;
+	font-weight: bold;
+}
+.supporting a:hover {
+	color: #f93;
+	text-decoration: underline;
+}
+.supporting p {
+	padding-bottom: 12px;
+}
+.supporting div {
+	color: #fdf3e5;
+	font-size: 11px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+.preamble, .supporting div.explanation {
+	background: #fdf3e5;
+	color: #333;
+	font-size: 12px;
+	margin-right: 0;
+}
+.preamble {
+	margin-left: 100px;
+	padding: 30px 30px 0 30px;
+	background: #fdf3e5 url(img/preamblebg.gif) 5px 0 no-repeat;
+}
+.supporting div.explanation {
+	padding: 30px 30px 18px 30px;
+	margin-left: 0;
+}
+.preamble p, .explanation p:nth-child(2) {
+	display: inline;
+}
+.explanation p:nth-child(3) {
+	padding-top: 12px;
+}
+.participation, .benefits, .requirements {
+	padding: 15px 0 3px 0;
+	border-bottom: 1px solid #b76151;
+
+}
+.participation h3 {
+	width: 102px;
+	left: -122px;
+	background: url(img/participation.gif) no-repeat;
+}
+.benefits h3 {
+	width: 70px;
+	left: -90px;
+	background: url(img/benefits.gif) no-repeat;
+}
+.requirements h3 {
+	width: 107px;
+	left: -127px;
+	background: url(img/requirements.gif) no-repeat;
+}
+.participation h3, .benefits h3, .requirements h3 {
+	height: 17px;
+	line-height: 17px;
+	/*position: relative;*/
+	color: white;
+/*}
+.participation h3, .benefits h3, .requirements h3 {*/
+	/*text-indent: 100%;*/
+	white-space: nowrap;
+	overflow: hidden;
+}
+.participation p:nth-child(2), .benefits p:nth-child(2), .requirements p:nth-child(2) {
+	margin-top: -17px;
+}
+.supporting footer {
+	padding: 20px 0 20px 1.5em;
+	text-transform: uppercase;
+	background: #982417 url(img/bullet.gif) 0 50% no-repeat;
+	margin-right: 0;
+}
+footer {
+	text-align: center;
+}
+footer a {
+	padding: 0 1.5em 0 0;
+	margin: 0 .5em 0 0;
+	background: url(img/bullet.gif) 100% 50% no-repeat;
+	width: 5%;
+}
+.sidebar {
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*left: 601px;*/
+	float: right;
+	width: 147px;
+	background-color: #76693c;
+}
+.sidebar h3 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	line-height: 100%;
+	padding-bottom: 30px;
+}
+.sidebar h3::before {
+	content: ".:";
+}
+.sidebar h3::after {
+	content: ".";
+}
+.sidebar h3.select {
+	width: 147px;
+	height: 120px;
+	line-height: 105px;
+	background: #5b5962 url(img/select.gif) bottom no-repeat;
+	padding-bottom: 0;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.sidebar div {
+	color: #dbd2a1;
+	text-align: center;
+	font-size: 11px;
+}
+.sidebar div ul {
+	padding: 0 14px;
+}
+.sidebar div li {
+	display: block;
+	padding: 10px 0;
+	border-bottom: 1px solid #9f916b;
+}
+.sidebar .wrapper a {
+	color: #dbd2a1;
+}
+.sidebar .wrapper a:visited {
+	color: #9f9667;
+}
+.sidebar .wrapper a:hover {
+	color: #fff;
+}
+.design-selection a, #lfavorites a {
+	display: block;
+	font-weight: bold;
+}
+.design-selection a.designer-name, #lfavorites a.designer-name {
+	display: inline;
+	font-weight: normal;
+}
+#lfavorites, .design-archives, .zen-resources {
+	margin-top: -2px;
+	background: #76693c url(img/stone.gif) 60px 70px no-repeat;
+	padding-top: 50px;
+}
+
+	</style>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.csszengarden.com/zengarden.xml">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="George Morrone">
+	<meta name="description" content="Thai Restaurant Cuisine Huntsville Alabama.">
+	<meta name="robots" content="all">
+	<style>
+	#main {
+		background-color: #663a2a;
+	}
+	</style>
+
+	<!--[if lt IE 9]>
+	<script src="script/html5shiv.js"></script>
+	<![endif]-->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-2.1.4.js'></script>
+	<script type='text/javascript' src='http://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
+
+	<script type="text/javascript">
+	var log = console.log.bind(console),
+		delay = 400,
+		$this,
+		urls = {
+			map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3278.473522630782!2d-86.67830426929487!3d34.74366278118364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x886269469dd0996d%3A0xe171e94a3512c3e1!2s6125+University+Dr%2C+Huntsville%2C+AL+35806!3m2!1d34.743662799999996!2d-86.6761585!5e0!3m2!1sen!2sus!4v1433977585506",
+			menu: "menu.pdf"
+		}
+	$.fn.center = function() {
+		$this = $(this);
+		$this
+			.width($("html").width() * .75)
+			.height($("html").height() * .75)
+			.css("left", ($("html").width()  - $this.width()) * .5)
+			.css("top",  ($("html").height() - $this.height()) * .5)
+		return this
+	}
+	$(document).on("click", "a", function(e) {
+		e.preventDefault()
+		$("iframe").attr("src", urls[$(this).attr("data-tab")])
+		$("iframe").center()
+			// .width($(this).attr("data-width"))
+			// .height($(this).attr("data-height"))
+		$(".layover").fadeIn(delay).show()
+	})
+	$(document).on("click", ".layover", function(e) {
+		e.preventDefault()
+		$(".layover").fadeOut(delay, function() {
+			$(this).hide()
+		})
+	})
+	$(function() {
+		$("#wrap").center()
+		$("iframe").center()
+		$("iframe").resizable()
+	})
+	</script>
+</head>
+
+<body id="big-bowl-thai">
+<div class="page-wrapper">
+
+	<section class="intro" id="bbt-intro">
+		<header role="banner">
+			<h1>Big Bowl Thai Cuisine Huntsville, Al.</h1>
+			<h2>Fine Thai Dining in Northern Alabama</h2>
+		</header>
+
+		<div class="summary" id="zen-summary" role="article">
+			<p>Summarize here.</p>
+
+		</div>
+
+		<div class="preamble" id="zen-preamble" role="article">
+			<h3>The Road to Fine Thai Dining in Huntsville</h3>
+			<p>One.</p>
+			<p>Two.</p>
+			<p>Three</p>
+		</div>
+	</section>
+
+		<aside class="sidebar" role="complementary">
+		<div class="wrapper">
+
+			<div class="design-selection" id="design-selection">
+				<h3 class="select">Select a Design:</h3>
+				<nav role="navigation">
+					<ul>
+					<li>a</li>
+					<li>b</li>
+					<li>c</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+	</aside>
+
+	<div class="main supporting" id="zen-supporting" role="main">
+		<div class="explanation" id="zen-explanation" role="article">
+			<h3>Big Bowl Thai</h3>
+			<p style='overflow: hidden; height: 1px;'><img src="bigbowl.gif" alt="Big Bowl Thai Cuisine Huntsville" height="385"></p>
+		</div>
+
+		<div class="participation" id="zen-participation" role="article">
+			<h3>Participation</h3>
+			<p>a.</p>
+			<p>b.</p>
+			<p>c.</p>
+		</div>
+
+		<div class="benefits" id="zen-benefits" role="article">
+			<h3>Benefits</h3>
+			<p>Why participate?</p>
+		</div>
+
+		<div class="requirements" id="zen-requirements" role="article">
+			<h3>Requirements</h3>
+			<p>abcdef.</p>
+			<p>hijklmnop</p>
+			<p>qrstuv</p>
+			<p>lorum ipsum.</p>
+
+		</div>
+
+		<footer>
+			<a href="#" data-tab="map">directions</a>
+			&nbsp;
+			<a href="#" data-tab="menu" data-width="700" data-height='700'>menu</a>
+
+		</footer>
+
+	</div>
+
+
+
+
+
+</div>
+
+<!--
+
+	These superfluous divs/spans were originally provided as catch-alls to add extra imagery.
+	These days we have full ::before and ::after support, favour using those instead.
+	These only remain for historical design compatibility. They might go away one day.
+
+-->
+<div class="extra1" role="presentation"></div><div class="extra2" role="presentation"></div><div class="extra3" role="presentation"></div>
+<div class="extra4" role="presentation"></div><div class="extra5" role="presentation"></div><div class="extra6" role="presentation"></div>
+<div class="layover">
+	<iframe frameborder="0" style="border:0;"></iframe>
+</div>
+</body>
+</html>
